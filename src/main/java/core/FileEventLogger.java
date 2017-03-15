@@ -13,7 +13,11 @@ public class FileEventLogger implements EventLogger{
 
     public FileEventLogger(String filename) {
         this.filename = filename;
+    }
+
+    public void init() throws IOException{
         file = new File(filename);
+        if (!file.canWrite()) throw  new IOException();
     }
 
     public void logEvent(Event event) {

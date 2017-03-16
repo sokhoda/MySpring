@@ -21,7 +21,8 @@
     </build>
 
     <properties>
-        <spring.framework.version> 4.3.3.RELEASE</spring.framework.version>
+        <spring.framework.version>4.3.3.RELEASE</spring.framework.version>
+        <aspectj.version>1.8.10</aspectj.version>
     </properties>
 
     <dependencies>
@@ -60,7 +61,30 @@
             <artifactId>commons-io</artifactId>
             <version>2.5</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.40</version> <!--6.0.4 -->
+        </dependency>
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.framework.version}</version>
+        </dependency>
     </dependencies>
 
 

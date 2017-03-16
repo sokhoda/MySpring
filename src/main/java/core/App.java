@@ -1,12 +1,11 @@
 package core;
 
 import lombok.Data;
-import org.springframework.context.ApplicationEvent;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.event.ContextStartedEvent;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.HashMap;
+import javax.annotation.Resource;
 import java.util.Map;
 
 @Data
@@ -14,6 +13,13 @@ public class App {
     private Client client;
     private EventLogger defaultLogger;
     private Map<EventType, EventLogger> loggers;
+    @Autowired
+    private StatisticsAspect statisticsAspect;
+
+    @Autowired
+    private DBLogger dbLogger;
+    @Autowired
+    private MapTest mapTest;
 
     public App(){}
 
@@ -39,7 +45,7 @@ public class App {
 
         App app = ctx.getBean("app", core.App.class);
 //        ApplicationEvent
-        System.out.println(app.client);
+        System.out.println(app.getClient());
         Event event1 = ctx.getBean("event", Event.class);
         event1.setMessage("Some info for user 1");
         app.logEvent(EventType.ERROR, event1);
@@ -56,17 +62,19 @@ public class App {
         event5.setMessage("Some info for user 5");
         app.logEvent(null, event5);
 
+        System.out.println("STATISTICS:\n" + app.statisticsAspect.getPointCutMethExecCount());
+
         ctx.close();
     }
 
     private void logEvent(EventType type, Event event){
-        String message = event.getMessage().replaceAll(client.getId().toString(), client
-                .getFullName());
+        String message = event.getMessage().replaceAll(client.getId().toString(), client.getFullName());
         event.setMessage(message);
         EventLogger logger = loggers.get(type);
         if (logger == null){
             logger = defaultLogger;
         }
         logger.logEvent(event);
+//        dbLogger.logEvent(event);
     }
 }

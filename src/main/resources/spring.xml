@@ -5,22 +5,44 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="
  		http://www.springframework.org/schema/beans
  		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
         http://www.springframework.org/schema/util
         http://www.springframework.org/schema/util/spring-util-3.2.xsd
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+ 		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
 
     <import resource="loggers.xml"/>
 
+    <aop:aspectj-autoproxy/>
+    <context:annotation-config/>
+    <context:component-scan base-package="core"/>
+
     <context:property-placeholder
             system-properties-mode="OVERRIDE"
-            location="classpath:client.properties"/>
+            location="classpath:client.properties, classpath:jdbc.properties"/>
     <!--<util:properties id="clientProps" location="classpath:client.properties"/>-->
 
-          <!--p:greeting="${greeting}"-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${user}"/>
+        <property name="password" value="${password}"/>
+    </bean>
+
+
+    <bean id="logAspect" class="core.LoggingAspect"/>
+
+    <!--p:greeting="${greeting}"-->
     <bean id="client" class="core.Client"
           p:greeting="#{systemEnvironment['USERNAME']}"
           c:id="${id}">
@@ -32,10 +54,49 @@
         <entry key="ERROR" value-ref="combinedEventLogger"/>
     </util:map>
 
+    <!--<bean id="mapTest" class="core.MapTest">-->
+        <!--<constructor-arg>-->
+            <!--<map>-->
+                <!--<entry key="aaa">-->
+                    <!--<list>-->
+                        <!--<value>fer</value>-->
+                        <!--<value>fer2</value>-->
+                    <!--</list>-->
+                <!--</entry>-->
+            <!--</map>-->
+        <!--</constructor-arg>-->
+    <!--</bean>-->
+
+    <!--<bean id="mapTest2" class="core.MapTest">-->
+        <!--<constructor-arg>-->
+            <!--<map>-->
+                <!--<entry key="fr" value="['fff', 'rfe']"/>-->
+            <!--</map>-->
+        <!--</constructor-arg>-->
+    <!--</bean>-->
+
+    <bean id="mapTest3" class="core.MapTest">
+        <constructor-arg>
+            <map>
+                <entry key="fr" value="#{{'fff', 'rfe'}}"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean name="supplier" abstract="true">
+        <property name="def" value="YES"/>
+    </bean>
+
+    <bean class="core.Manager">
+        <!--<constructor-arg>-->
+            <!--<bean id="supplier" class="core.DBLogger"/>-->
+        <!--</constructor-arg>-->
+    </bean>
+
     <bean id="app" class="core.App" c:client-ref="client">
-       <constructor-arg name="loggers" ref="loggerMap"/>
-       <property name="defaultLogger"
-                value="#{ T(core.Event).isDay() ? fileEventLogger : consoleEventLogger}"/>
+        <constructor-arg name="loggers" ref="loggerMap"/>
+        <property name="defaultLogger"
+                  value="#{ T(core.Event).isDay() ? fileEventLogger : consoleEventLogger}"/>
     </bean>
 
     <bean id="event" class="core.Event" scope="prototype">

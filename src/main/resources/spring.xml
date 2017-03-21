@@ -25,7 +25,7 @@
 
     <context:property-placeholder
             system-properties-mode="OVERRIDE"
-            location="classpath:client.properties, classpath:jdbc.properties"/>
+            location="classpath:client.properties, classpath:jdbc.properties, classpath:test.properties"/>
     <!--<util:properties id="clientProps" location="classpath:client.properties"/>-->
 
     <bean id="bpp" class="core.Bpp"/>

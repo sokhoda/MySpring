@@ -1,4 +1,6 @@
-package core;
+package core.loggers;
+
+import core.Event;
 
 public class ConsoleEventLogger implements EventLogger {
 

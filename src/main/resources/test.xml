@@ -5,26 +5,18 @@
  		http://www.springframework.org/schema/beans
  		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
-    <!--<bean id="mapTest" class="core.MapTest">-->
-        <!--<constructor-arg>-->
-            <!--<map>-->
-                <!--<entry key="aaa">-->
-                    <!--<list>-->
-                        <!--<value>fer</value>-->
-                        <!--<value>fer2</value>-->
-                    <!--</list>-->
-                <!--</entry>-->
-            <!--</map>-->
-        <!--</constructor-arg>-->
-    <!--</bean>-->
-
-    <!--<bean id="mapTest2" class="core.MapTest">-->
-        <!--<constructor-arg>-->
-            <!--<map>-->
-                <!--<entry key="fr" value="['fff', 'rfe']"/>-->
-            <!--</map>-->
-        <!--</constructor-arg>-->
-    <!--</bean>-->
+    <bean id="mapTest" class="core.MapTest">
+        <constructor-arg>
+            <map>
+                <entry key="aaa">
+                    <list>
+                        <value>fer</value>
+                        <value>fer2</value>
+                    </list>
+                </entry>
+            </map>
+        </constructor-arg>
+    </bean>
 
     <bean id="mapTest3" class="core.MapTest" init-method="init">
         <constructor-arg>
@@ -38,9 +30,19 @@
         <property name="def" value="YES"/>
     </bean>
 
+    <bean id="autowireMapTest" class="core.experiment.AutowireMapTest"
+          factory-method="getInstance"/>
+
+    <bean id="clientManager" class="core.experiment.ClientManager">
+        <lookup-method name="createClient" bean="lookupClient" />
+    </bean>
+
+    <bean id="lookupClient" class="core.Client" scope="prototype"/>
+
+
     <!--<bean class="core.Manager">-->
         <!--<constructor-arg>-->
-            <!--<bean id="supplier" class="core.DBLogger"/>-->
+            <!--<bean id="supplier" class="core.loggers.DBLogger"/>-->
         <!--</constructor-arg>-->
     <!--</bean>-->
 

@@ -1,5 +1,6 @@
-package core;
+package core.loggers;
 
+import core.Event;
 import lombok.Data;
 import org.apache.commons.io.FileUtils;
 

@@ -3,10 +3,12 @@ package core;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Map;
 
 @Data
@@ -64,7 +66,6 @@ public class App {
         app.logEvent(null, event5);
 
         System.out.println("STATISTICS:\n" + app.statisticsAspect.getPointCutMethExecCount());
-
 
         ctx.close();
     }

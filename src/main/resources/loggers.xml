@@ -9,7 +9,7 @@
 
     <bean id="fileEventLogger" class="core.FileEventLogger"
           init-method="init">
-        <constructor-arg value="D:\IdeaProjects\MySpring\events.txt"/>
+        <constructor-arg value="${events.fullfilename}"/>
     </bean>
 
     <bean id="cacheEventLogger" class="core.CacheFileEventLogger"

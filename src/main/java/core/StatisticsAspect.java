@@ -1,5 +1,8 @@
 package core;
 
+import core.loggers.CacheFileEventLogger;
+import core.loggers.ConsoleEventLogger;
+import core.loggers.EventLogger;
 import lombok.Data;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -29,7 +32,7 @@ public class StatisticsAspect {
     private void allLogEventMethods() {
     }
 
-    @Pointcut("execution(* ConsoleEventLogger.logEvent(Event))")
+    @Pointcut("execution(* *.ConsoleEventLogger.logEvent(Event))")
     private void consoleLogEventMethods() {
     }
 

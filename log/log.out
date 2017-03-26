@@ -1,0 +1,80 @@
+Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3b95a09c: startup date [Sat Mar 18 11:48:25 EET 2017]; root of context hierarchy
+Loading XML bean definitions from class path resource [spring.xml]
+Loading XML bean definitions from class path resource [loggers.xml]
+Loading XML bean definitions from class path resource [test.xml]
+Loading properties file from class path resource [client.properties]
+Loading properties file from class path resource [jdbc.properties]
+Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'fileEventLogger' defined in class path resource [loggers.xml]: Invocation of init method failed; nested exception is java.io.IOException
+Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3b95a09c: startup date [Sat Mar 18 11:49:39 EET 2017]; root of context hierarchy
+Loading XML bean definitions from class path resource [spring.xml]
+Loading XML bean definitions from class path resource [loggers.xml]
+Loading XML bean definitions from class path resource [test.xml]
+Loading properties file from class path resource [client.properties]
+Loading properties file from class path resource [jdbc.properties]
+Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'fileEventLogger' defined in class path resource [loggers.xml]: Invocation of init method failed; nested exception is java.io.IOException
+Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3b95a09c: startup date [Sat Mar 18 11:50:00 EET 2017]; root of context hierarchy
+Loading XML bean definitions from class path resource [spring.xml]
+Loading XML bean definitions from class path resource [loggers.xml]
+Loading XML bean definitions from class path resource [test.xml]
+Loading properties file from class path resource [client.properties]
+Loading properties file from class path resource [jdbc.properties]
+Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'fileEventLogger' defined in class path resource [loggers.xml]: Invocation of init method failed; nested exception is java.io.IOException
+Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3b95a09c: startup date [Sat Mar 18 11:50:40 EET 2017]; root of context hierarchy
+Loading XML bean definitions from class path resource [spring.xml]
+Loading XML bean definitions from class path resource [loggers.xml]
+Loading XML bean definitions from class path resource [test.xml]
+Loading properties file from class path resource [client.properties]
+Loading properties file from class path resource [jdbc.properties]
+Loaded JDBC driver: com.mysql.jdbc.Driver
+BEFORE:CombinedEventLogger logEvent
+BEFORE:ConsoleEventLogger logEvent
+BEFORE:FileEventLogger logEvent
+BEFORE:FileEventLogger logEvent
+BEFORE:FileEventLogger logEvent
+BEFORE:FileEventLogger logEvent
+Closing org.springframework.context.support.ClassPathXmlApplicationContext@3b95a09c: startup date [Sat Mar 18 11:50:40 EET 2017]; root of context hierarchy
+Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3b95a09c: startup date [Sat Mar 18 11:58:04 EET 2017]; root of context hierarchy
+Loading XML bean definitions from class path resource [spring.xml]
+Loading XML bean definitions from class path resource [loggers.xml]
+Loading XML bean definitions from class path resource [test.xml]
+Loading properties file from class path resource [client.properties]
+Loading properties file from class path resource [jdbc.properties]
+Loading properties file from class path resource [path.properties]
+Loaded JDBC driver: com.mysql.jdbc.Driver
+BEFORE:CombinedEventLogger logEvent
+BEFORE:ConsoleEventLogger logEvent
+BEFORE:FileEventLogger logEvent
+BEFORE:FileEventLogger logEvent
+BEFORE:FileEventLogger logEvent
+BEFORE:FileEventLogger logEvent
+Closing org.springframework.context.support.ClassPathXmlApplicationContext@3b95a09c: startup date [Sat Mar 18 11:58:04 EET 2017]; root of context hierarchy
+Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3b95a09c: startup date [Fri Mar 24 02:34:13 EET 2017]; root of context hierarchy
+Loading XML bean definitions from class path resource [spring.xml]
+Loading XML bean definitions from class path resource [loggers.xml]
+Loading XML bean definitions from class path resource [test.xml]
+Loading properties file from class path resource [client.properties]
+Loading properties file from class path resource [jdbc.properties]
+Loading properties file from class path resource [path.properties]
+Loaded JDBC driver: com.mysql.jdbc.Driver
+BEFORE:CombinedEventLogger logEvent
+BEFORE:ConsoleEventLogger logEvent
+BEFORE:FileEventLogger logEvent
+BEFORE:FileEventLogger logEvent
+BEFORE:FileEventLogger logEvent
+BEFORE:FileEventLogger logEvent
+Closing org.springframework.context.support.ClassPathXmlApplicationContext@3b95a09c: startup date [Fri Mar 24 02:34:13 EET 2017]; root of context hierarchy
+Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3b95a09c: startup date [Fri Mar 24 02:35:18 EET 2017]; root of context hierarchy
+Loading XML bean definitions from class path resource [spring.xml]
+Loading XML bean definitions from class path resource [loggers.xml]
+Loading XML bean definitions from class path resource [test.xml]
+Loading properties file from class path resource [client.properties]
+Loading properties file from class path resource [jdbc.properties]
+Loading properties file from class path resource [path.properties]
+Loaded JDBC driver: com.mysql.jdbc.Driver
+BEFORE:CombinedEventLogger logEvent
+BEFORE:ConsoleEventLogger logEvent
+BEFORE:FileEventLogger logEvent
+BEFORE:FileEventLogger logEvent
+BEFORE:FileEventLogger logEvent
+BEFORE:FileEventLogger logEvent
+Closing org.springframework.context.support.ClassPathXmlApplicationContext@3b95a09c: startup date [Fri Mar 24 02:35:18 EET 2017]; root of context hierarchy

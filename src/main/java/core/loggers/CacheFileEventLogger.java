@@ -1,10 +1,7 @@
-package core;
+package core.loggers;
 
-import org.apache.commons.io.FileUtils;
+import core.Event;
 
-import java.io.File;
-import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +29,8 @@ public class CacheFileEventLogger extends FileEventLogger{
             cache.clear();
         }
     }
+
+    public void someMethod(){}
 
     private void writeEventsFromCache() {
         cache.stream().forEach(super::logEvent);

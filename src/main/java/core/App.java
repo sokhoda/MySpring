@@ -1,7 +1,12 @@
 package core;
 
+import core.experiment.AutowireMapTest;
+import core.experiment.ClientManager;
+import core.loggers.DBLogger;
+import core.loggers.EventLogger;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -9,6 +14,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+=======
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import javax.servlet.jsp.tagext.BodyTagSupport;
+>>>>>>> origin/master
 import java.util.Map;
 
 @Data
@@ -41,13 +52,21 @@ public class App {
     public App(Map<EventType, EventLogger> loggers) {
         this.loggers = loggers;
     }
-
     public static void main(String[] args) {
         ConfigurableApplicationContext ctx =
                 new ClassPathXmlApplicationContext("spring.xml");
 
         App app = ctx.getBean("app", core.App.class);
 //        ApplicationEvent
+        AutowireMapTest autowireMapTest = ctx.getBean("autowireMapTest",
+                AutowireMapTest.class);
+
+        ClientManager clientManager = ctx.getBean("clientManager", ClientManager.class);
+        System.out.println("clientManager:" + clientManager);
+
+        Client lookupClient = ctx.getBean("lookupClient", Client.class);
+        System.out.println("lookupClient:" + lookupClient);
+
         System.out.println(app.getClient());
         Event event1 = ctx.getBean("event", Event.class);
         event1.setMessage("Some info for user 1");
